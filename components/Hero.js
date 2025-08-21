@@ -1,4 +1,4 @@
-const HeroComp = {
+const Hero = {
     render(config = {}) {
         const {
             title = "Bienvenido a BestMilk",
