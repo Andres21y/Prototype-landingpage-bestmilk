@@ -37,8 +37,9 @@
     <script src="components/CallToAtion.js"></script>
     <script src="components/Footer.js"></script>
     <script src="components/Modal.js"></script>
-    <script src="assets/app.js"></script>
-    <script>
+    <script src="components/ModalAddGanado.js"></script>
+    <script src="app.js"></script>
+     <script>
         // Inicializar la aplicación
         document.addEventListener('DOMContentLoaded', function () {
             initApp()
@@ -53,6 +54,7 @@
             document.getElementById('stats-container').innerHTML = Stats.render();
             document.getElementById('cta-container').innerHTML = Cta.render();
             document.getElementById('footer-container').innerHTML = Footer.render();
+
 
             // Modal de demo
             document.getElementById('modal-container').innerHTML = ModalComponent.render({
@@ -88,6 +90,11 @@
         function navigateTo(page) {
             window.location.href = `/pages/${page}/index.html`;
         }
+           function createItem() {
+            var modal = M.Modal.getInstance(document.getElementById('addCowModal'));
+            modal.open();
+        }
+
 
         function showDemo() {
             ModalComponent.show('demoModal');
