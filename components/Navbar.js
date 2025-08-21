@@ -19,7 +19,7 @@ const Navbar = {
             <ul class="sidenav blue lighten-5" id="mobile-demo" >
               <li>
                 <div class="user-view">
-                     <div class="background" ><img src="./assets/images/bg.png"></div>
+                     <div class="background" ></div>
                         <img src="./assets/images/best_milk_main.png" style="width:100%">
                     </div>
                 </li>

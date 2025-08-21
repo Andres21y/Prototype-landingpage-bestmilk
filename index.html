@@ -10,31 +10,65 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/global.css">
+    <link rel="stylesheet" href="./css/global.css">
 </head>
 
 <body>
-    <!-- Contenedores para cada componente -->
+
     <div id="navbar-container"></div>
-    <div id="hero-container"></div>
+
+    <section id="hero" class="hero-section">
+        <div class="container">
+            <div class="row">
+                <div class="col s12">
+                    <div class="hero-content">
+                        <h1 class="hero-title">Bienvenidos a Bestmilk</h1>
+                        <p class="hero-subtitle">La plataforma perfecta para gestionar tus proyectos de manera eficiente
+                            y colaborativa</p>
+
+                        <div class="hero-buttons">
+                            <a href="#" class="btn btn-hero btn-primary waves-effect waves-light">
+                                <i class="material-icons left">rocket_launch</i>
+                                Comenzar Ahora
+                            </a>
+                            <a href="#" class="btn btn-hero btn-secondary waves-effect waves-light">
+                                <i class="material-icons left">play_circle_outline</i>
+                                Ver Demo
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <div id="features-container"></div>
     <div id="stats-container"></div>
     <div id="cta-container"></div>
     <div id="footer-container"></div>
-  
 
-    <!-- Scripts -->
+
+    
+    <script src="app.js"></script>
+    <script src="/components/Navbar.js"></script>
+    <script src="components/Footer.js"></script>
+
+    
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <script src="components/Navbar.js"></script>
-    <script src="components/Hero.js"></script>
+    
+    
     <script src="components/Features.js"></script>
     <script src="components/Stats.js"></script>
     <script src="components/CallToAtion.js"></script>
-    <script src="components/Footer.js"></script>
     <script src="components/Modal.js"></script>
     <script src="components/ModalAddGanado.js"></script>
-    <script src="app.js"></script>
+    
+    <!-- 
+-->
+
+
+
     <script>
         // Inicializar la aplicación
         document.addEventListener('DOMContentLoaded', function () {
@@ -52,7 +86,6 @@
 
             // Renderizar componentes
             document.getElementById('navbar-container').innerHTML = Navbar.render();
-            document.getElementById('hero-container').innerHTML = Hero.render();
             document.getElementById('features-container').innerHTML = Features.render();
             document.getElementById('stats-container').innerHTML = Stats.render();
             document.getElementById('cta-container').innerHTML = Cta.render();
@@ -84,8 +117,6 @@
             });
 
             // Inicializar componentes que lo requieren
-            Navbar.init();
-            Hero.init();
             ModalComponent.init('demoModal');
         }
 
@@ -103,7 +134,36 @@
             ModalComponent.show('demoModal');
         }
     </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'96f3887fc74c6c18',t:'MTc1NTIwNjgxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+
+    <script>
+        (function () {
+            function c() {
+                var b = a.contentDocument || a.contentWindow.document;
+                if (b) {
+                    var d = b.createElement('script');
+                    d.innerHTML = "window.__CF$cv$params={r:'96f3887fc74c6c18',t:'MTc1NTIwNjgxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";
+                    b.getElementsByTagName('head')[0].appendChild(d)
+                }
+            }
+            if (document.body) {
+                var a = document.createElement('iframe');
+                a.height = 1;
+                a.width = 1;
+                a.style.position = 'absolute';
+                a.style.top = 0;
+                a.style.left = 0;
+                a.style.border = 'none'; a.style.visibility = 'hidden';
+                document.body.appendChild(a);
+                if ('loading' !== document.readyState) c();
+                else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c);
+                else {
+                    var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) {
+                        e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c())
+                    }
+                }
+            }
+        })();
+    </script>
 </body>
 
 </html>
