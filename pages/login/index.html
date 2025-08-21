@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./login.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Pantalla 1: Validación de Usuario -->
+<div id="login" class="screen active">
+            <div class="row">
+                <div class="col s12 m8 l5 offset-m2 offset-l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="logo-placeholder">
+                                <img class="responsive-img" src="../images/best_milk_main.png">
+                            </div>
+                            <span class="card-title center-align"><strong>Login</strong></span>
+                            <p class="center-align" style="color: var(--text-primary); margin-bottom: 30px; font-size:12px">Ingresa tus credenciales
+                                para acceder al sistema</p>
+
+                            <form id="loginForm">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="username" type="text" class="validate" required>
+                                    <label for="username">Username</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix" style="color: var(--tertiary-color);">lock</i>
+                                    <input id="password" type="password" class="validate" required>
+                                    <label for="password">Password</label>
+                                </div>
+
+                                <div class="center-align" style="margin-top: 30px;">
+                                    <button class="btn waves-effect waves-light" type="submit">
+                                        Ingresar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+
+                                <div class="center-align" style="margin-top: 20px; font-size:12px">
+                                    <a href="#" onclick="showScreen('registro')"
+                                        style="color: var(--text-secondary); text-decoration: none;">¿No tienes cuenta?
+                                        Regístrate aquí</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+</body>
+</html>

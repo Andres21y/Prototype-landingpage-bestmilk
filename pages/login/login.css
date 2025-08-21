@@ -1,0 +1,21 @@
+:root {
+    --primary-color: #1a1a2e;
+    --secondary-color: #16213e;
+    --tertiary-color: #0f3460;
+    --accent-color: #e94560;
+    --light-accent: #ff6b8a;
+    --text-primary: #ffffff;
+    --text-secondary: #b8c5d6;
+    --success-color: #00d4aa;
+    --warning-color: #ffb347;
+    --error-color: #ff6b6b;
+}
+
+body {
+    background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+    color: var(--text-primary);
+    min-height: 100vh;
+    min-width: 320px;
+    display: grid;
+    place-items:center ;
+}
