@@ -1,0 +1,48 @@
+.dashboard-header {
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
+            padding: 2rem 0;
+            margin-bottom: 2rem;
+        }
+        .stats-card {
+            border-radius: 8px;
+            transition: transform 0.3s ease;
+        }
+        .stats-card:hover {
+            transform: translateY(-5px);
+        }
+        .add-cattle-btn {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            z-index: 1000;
+        }
+        .modal {
+            max-height: 90%;
+        }
+        .modal-content {
+            padding: 24px;
+        }
+        .input-field label {
+            color: #666;
+        }
+        .input-field input:focus + label,
+        .input-field textarea:focus + label {
+            color: #4CAF50 !important;
+        }
+        .input-field input:focus,
+        .input-field textarea:focus {
+            border-bottom: 1px solid #4CAF50 !important;
+            box-shadow: 0 1px 0 0 #4CAF50 !important;
+        }
+        .select-wrapper input.select-dropdown:focus {
+            border-bottom: 1px solid #4CAF50 !important;
+        }
+        .cattle-table {
+            margin-top: 2rem;
+        }
+        .table-container {
+            background: white;
+            border-radius: 8px;
+            padding: 1rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }

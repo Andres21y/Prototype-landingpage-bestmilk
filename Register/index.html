@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Validación de Usuario</title>
+    <!-- Materialize CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="./register.css">
+</head>
+
+<body>
+    <!-- Navegación -->
+    <nav>
+        <div class="nav-wrapper">
+            <div class="container">
+                <a href="#" class="brand-logo" style="color: var(--text-primary); font-weight: 600;">Sistema Usuario</a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="#" onclick="showScreen('login')" style="color: var(--text-secondary);">Validación</a>
+                    </li>
+                    <li><a href="#" onclick="showScreen('registro')" style="color: var(--text-secondary);">Registro</a>
+                    </li>
+                    <li><a href="#" onclick="showScreen('errores')" style="color: var(--text-secondary);">Errores</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <!-- Pantalla 1: Validación de Usuario -->
+        <div id="login" class="screen active">
+            <div class="row">
+                <div class="col s12 m8 l5 offset-m2 offset-l3">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="logo-placeholder">
+                                <img class="responsive-img" src="../images/best_milk_main.png">
+                            </div>
+                            <span class="card-title center-align"><strong>Login</strong></span>
+                            <p class="center-align" style="color: var(--text-primary); margin-bottom: 30px; font-size:12px">Ingresa tus credenciales
+                                para acceder al sistema</p>
+
+                            <form id="loginForm">
+                                <div class="input-field">
+                                    <i class="material-icons prefix">account_circle</i>
+                                    <input id="username" type="text" class="validate" required>
+                                    <label for="username">Username</label>
+                                </div>
+
+                                <div class="input-field">
+                                    <i class="material-icons prefix" style="color: var(--tertiary-color);">lock</i>
+                                    <input id="password" type="password" class="validate" required>
+                                    <label for="password">Password</label>
+                                </div>
+
+                                <div class="center-align" style="margin-top: 30px;">
+                                    <button class="btn waves-effect waves-light" type="submit">
+                                        Ingresar
+                                        <i class="material-icons right">send</i>
+                                    </button>
+                                </div>
+
+                                <div class="center-align" style="margin-top: 20px; font-size:12px">
+                                    <a href="#" onclick="showScreen('registro')"
+                                        style="color: var(--text-secondary); text-decoration: none;">¿No tienes cuenta?
+                                        Regístrate aquí</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla 2: Registro de Usuario -->
+        <div id="registro" class="screen">
+            <div class="row">
+                <div class="col s12 m10 l8 offset-m1 offset-l2">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="logo-placeholder">
+                                <img class="responsive-img" src="../images/best_milk_main.png">
+                            </div>
+                            <span class="card-title center-align"><strong>Registro de Usuario</strong></span>
+                            <p class="center-align" style="color: var(--text-secondary); margin-bottom: 30px;font-size:12px">Completa todos los campos
+                                para crear tu cuenta</p>
+
+                            <form id="registroForm">
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix"
+                                            style="color: var(--tertiary-color);">person</i>
+                                        <input id="nombres" type="text" class="validate" required>
+                                        <label for="nombres">Nombres</label>
+                                    </div>
+
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix"
+                                            style="color: var(--tertiary-color);">person_outline</i>
+                                        <input id="apellidos" type="text" class="validate" required>
+                                        <label for="apellidos">Apellidos</label>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix"
+                                            style="color: var(--tertiary-color);">credit_card</i>
+                                        <input id="cedula" type="text" class="validate" required pattern="[0-9]{8,10}">
+                                        <label for="cedula">Cédula</label>
+                                        <span class="helper-text" style="color:var(--text-secondary);">Solo números, 8-10 dígitos</span>
+                                    </div>
+
+                                    <div class="input-field col s12 m6">
+                                        <i class="material-icons prefix" style="color: var(--tertiary-color);">cake</i>
+                                        <input id="fecha_nacimiento" type="date" class="validate" required>
+                                        <label for="fecha_nacimiento">Fecha de Nacimiento</label>
+                                    </div>
+                                </div>
+
+                                <div class="center-align" style="margin-top: 30px;">
+                                    <button class="btn waves-effect waves-light" type="submit">
+                                        Registrar Usuario
+                                    </button>
+                                </div>
+
+                                <div class="center-align" style="margin-top: 20px; font-size:12px">
+                                    <a href="#" onclick="showScreen('login')"
+                                        style="color: var(--text-secondary); text-decoration: none;">¿Ya tienes cuenta?
+                                        Inicia sesión</a>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Pantalla 3: Errores del Sistema -->
+        <div id="errores" class="screen">
+            <div class="row">
+                <div class="col s12">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="logo-placeholderw" style="border-radius: 50%;">
+                                     <img class="responsive-img" src="../images/best_milk_main.png">
+                            </div>
+                            <span class="card-title center-align"><strong>Estado del Sistema</strong></span>
+                            <p class="center-align" style="color: var(--text-primary); margin-bottom: 30px;">Información
+                                sobre errores
+                                y notificaciones</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <!-- Error Crítico -->
+                <div class="col s12 m6 l6">
+                    <div class="card error-card">
+                        <div class="card-content">
+                            <span class="card-title" style="color: var(--error-color) !important;">
+                                <i class="material-icons left">error</i>Error Crítico
+                            </span>
+                            <p style="color: var(--secondary-color); font-size: 12px;">Algo va mal! No se pudo conectar con la base de datos.</p>
+                            <div class="card-action">
+                                <a href="#" style="color: var(--error-color);"
+                                    onclick="showNotification('Reintentando conexión...', 'error')">Reintentar</a>
+                                <a href="#" style="color: var(--error-color);">Contactar Soporte</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Advertencia -->
+                <div class="col s12 m6 l6">
+                    <div class="card warning-card">
+                        <div class="card-content">
+                            <span class="card-title" style="color: var(--warning-color) !important;">
+                                <i class="material-icons left">warning</i>Advertencia
+                            </span>
+                            <p style="color:var(--secondary-color); font-size: 12px; ">El servidor está experimentando alta carga. Los tiempos de
+                                respuesta pueden ser más lentos.</p>
+                            <div class="card-action">
+                                <a href="#" style="color: var(--warning-color);"
+                                    onclick="showNotification('Verificando estado del servidor...', 'warning')">Verificar
+                                    Estado</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Materialize JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script>
+        // Inicializar Materialize
+        document.addEventListener('DOMContentLoaded', function () {
+            M.AutoInit();
+        });
+
+        // Función para cambiar entre pantallas
+        function showScreen(params) {
+            // Ocultar todas las pantallas
+            const screens = document.querySelectorAll('.screen');
+            screens.forEach(screen => screen.classList.remove('active'));
+
+            // Mostrar la pantalla seleccionada
+            document.getElementById(params).classList.add('active');
+        }
+
+        // Función para limpiar formulario
+        function clearForm() {
+            document.getElementById('registroForm').reset();
+            M.updateTextFields();
+        }
+
+        // Función para mostrar notificaciones
+        function showNotification(message, type) {
+            let color = 'blue';
+            if (type === 'error') color = 'red';
+            if (type === 'warning') color = 'orange';
+            if (type === 'success') color = 'green';
+
+            M.toast({ html: message, classes: color });
+        }
+
+        // Manejar envío del formulario de login
+        document.getElementById('loginForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            if (username && password) {
+                if (username === 'admin' && password === 'admin') {
+                    showNotification('¡Validación exitosa! Bienvenido al sistema', 'success');
+                } else {
+                    showNotification('Credenciales incorrectas. Intenta nuevamente', 'error');
+                }
+            }
+        });
+
+        // Manejar envío del formulario de registro
+        document.getElementById('registroForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            const nombres = document.getElementById('nombres').value;
+            const apellidos = document.getElementById('apellidos').value;
+            const cedula = document.getElementById('cedula').value;
+            const fechaNacimiento = document.getElementById('fecha_nacimiento').value;
+
+            if (nombres && apellidos && cedula && fechaNacimiento) {
+                // Validar cédula (solo números y longitud)
+                if (!/^\d{8,10}$/.test(cedula)) {
+                    showNotification('La cédula debe contener entre 8 y 10 dígitos', 'error');
+                    return;
+                }
+
+                // Validar edad mínima (18 años)
+                const today = new Date();
+                const birthDate = new Date(fechaNacimiento);
+                const age = today.getFullYear() - birthDate.getFullYear();
+
+                if (age < 18) {
+                    showNotification('Debes ser mayor de 18 años para registrarte', 'error');
+                    return;
+                }
+
+                showNotification(`¡Usuario ${nombres} ${apellidos} registrado exitosamente!`, 'success');
+                setTimeout(() => { clearForm(); }, 2000);
+            }
+        });
+    </script>
+    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'96f3887fc74c6c18',t:'MTc1NTIwNjgxNS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>
