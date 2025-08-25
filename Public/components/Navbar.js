@@ -1,11 +1,15 @@
-    <div class="navbar-fixed">
+const Navbar = {
+    render() {
+        return `
+            <div class="navbar-fixed">
                 <nav>
                     <div class="nav-wrapper">
-                    <a href="#" class="brand-logo grey-text text-darken-3"><img class="responsive-img" src="../assets/images/best_milk_main.png"></a>
+                    <a href="#" class="brand-logo grey-text text-darken-3"><img class="responsive-img" src="assets/images/best_milk_main.png"></a>
                             <a href="#" data-target="mobile-demo" class="sidenav-trigger grey-text text-darken-3">
                                 <i class="material-icons">menu</i>
                             </a>
                             <ul class="right hide-on-med-and-down">
+                            <li><a href="#" onclick="navigateTo('contac')">Contac</a></li>
                                 <li><a href="#" onclick="navigateTo('login')" class="grey-text text-darken-1">Iniciar Sesión</a></li>
                                 <li><a href="#" onclick="navigateTo('signup')" class="btn indigo darken-1 white-text">Registrarse</a></li>
                             </ul>
@@ -30,3 +34,6 @@
                 <li><a href="#" onclick="navigateTo('help')">Help</a></li>
                 <li><a href="#" onclick="navigateTo('setting')">Settings</a></li>
             </ul>
+        `;
+    },
+};

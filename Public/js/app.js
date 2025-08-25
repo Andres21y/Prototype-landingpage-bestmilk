@@ -3,10 +3,10 @@ const AppConfig = {
     version: "1.0.0",
     apiUrl: "https://api.miapp.com",
     routes: {
-        login: "login/index.html",
-        signup: "signup/index.html", 
+        login: "Views/login/index.html",
+        signup: "Views/signup/index.html", 
         error: "error/index.html",
-        dashboard:"dashboard/index.html"
+        dashboard:"Views/dashboard/index.html"
     }
 };
 

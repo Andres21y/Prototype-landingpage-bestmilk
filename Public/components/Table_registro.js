@@ -34,15 +34,15 @@ export function renderRecords() {
   `;
 
   const tbody = document.createElement('tbody');
-  data.forEach(animal => {
+  data.forEach(e => {
     const tr = document.createElement('tr');
     tr.innerHTML = `
-      <td>${animal.id}</td>
-      <td>${animal.nombre}</td>
-      <td>${animal.raza}</td>
-      <td>${animal.edad}</td>
-      <td><span class="chip ${animal.estado === 'Saludable' ? 'green' : 'orange'} white-text">${animal.estado}</span></td>
-      <td>${animal.fecha}</td>
+      <td>${e.id}</td>
+      <td>${e.nombre}</td>
+      <td>${e.raza}</td>
+      <td>${e.edad}</td>
+      <td><span class="chip ${e.estado === 'Saludable' ? 'green' : 'orange'} white-text">${e.estado}</span></td>
+      <td>${e.fecha}</td>
     `;
     tbody.appendChild(tr);
   });

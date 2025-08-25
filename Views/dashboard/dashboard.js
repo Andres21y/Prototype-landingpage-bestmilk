@@ -1,175 +1,49 @@
-<!DOCTYPE html>
-<html lang="en">
+import { renderPeople } from '/Public/components/Table_personal.js';
+import { renderRecords } from '/Public/components/Table_registro.js';
+import { cattleRegistrationForm } from '/Public/components/Cattle_registration_form.js';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><!-- Materialize CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/dashboard.css">
-    <title>Dashboard</title>
-</head>
+document.addEventListener('DOMContentLoaded', function () {
+  
+  const btnPeople = document.getElementById('btn_people');
+  const btnRegisters = document.getElementById('btn_data');
+  const btnCRF = document.getElementById('btn_new_cattle_form');
+  const renderDiv = document.getElementById('render');
 
-<body>
-    <nav class="navbar orange darken-3">
-        <div class="nav-wrapper">
-            <a href="#" class="brand-logo text-darken-4 grey-text">Dashboard</a>
-            <a href="#" data-target="mobile-demo" class="sidenav-trigger left">
-                <i class="material-icons black-text">menu</i>
-            </a>
-            <ul class="right hide-on-med-and-down">
-                <li><a href=""><i class="material-icons">search</i></a></li>
-                <li><a href=""><i class="material-icons">view_modules</i></a></li>
-                <li><a href=""><i class="material-icons">refresh</i></a></li>
-                <li><a href=""><i class="material-icons">more_vert</i></a></li>
-            </ul>
-        </div>
-    </nav>
+  btnPeople.addEventListener('click', () => {
+    renderDiv.innerHTML = '';
+    renderDiv.appendChild(renderPeople());
+  });
 
-    <ul id="mobile-demo" class="sidenav sidenav-fixed ">
-        <li>
-            <div class="user-view">
-                <div class="background"><img src="/assets/images/bg.png" alt="background"></div>
-                <a href=""><img src="/assets/images/main_ganado.jpeg" class="circle" alt=""></a>
-                <a href=""><span class="white-text name">Grupo SENA</span></a>
-                <a href=""><span class="white-text email">pepito@gmail.com</span></a>
-            </div>
-        </li>
+  btnRegisters.addEventListener('click', () => {
+    renderDiv.innerHTML = '';
+    renderDiv.appendChild(renderRecords());
+  });
+
+  btnCRF.addEventListener('click', () => {
+    renderDiv.innerHTML = '';
+    renderDiv.appendChild(cattleRegistrationForm());
+  });
+
+  console.log("ressdd", btnPeople);
+
+  let elems = document.querySelectorAll('.sidenav');
+  let options = {}; // define tus opciones si las necesitas
+  let instances = M.Sidenav.init(elems, options);
+
+  // Render inicial
+  renderDiv.innerHTML = '';
+  renderDiv.appendChild(renderPeople());
+});
 
 
-        <li>
-            <a href="#" class="waves-effect" id="btn_people">
-                <i class="material-icons orange-text">group</i>Pesonal
-            </a>
-        </li>
-        <li>
-            <a href="#" class="waves-effect" id="btn_data">
-                <i class="material-icons orange-text">view_comfy</i> Registro
-            </a>
-        </li>
-        <li>
-            <a href="#" id="btn_new_cattle_form" class="">
-                <i class="material-icons small orange-text">add</i> Nuevo Ganado
-            </a>
-        </li>
 
-        <li><a href="" class="waves-effect"><i class="material-icons orange-text">settings</i>Settings</a></li>
-        <li>
-            <div class="divider"></div>
-        </li>
-        <li><a href="" class="subheader">Menu</a></li>
-        <li><a href="">Learn More</a></li>
-        <li><a href="">Reading</a></li>
-        <li><a href="">Help</a></li>
-
-        <li class="no-padding">
-            <ul class="collapsible collapsible-accordion">
-                <li class="bold">
-                    <a href="" class="collapsible-header">Pages</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="">Home</a></li>
-                            <li><a href="">Acerca de Nosotros</a></li>
-                            <li> <a href=""><i class="material-icons">view_modules</i>Proyectos</a> </li>
-                            <li> <a href=""><i class="material-icons">cloud</i>Servicios</a> </li>
-                        </ul>
-                    </div>
-                </li>
-
-                <li class="bold">
-                    <a href="" class="collapsible-header">Webites</a>
-                    <div class="collapsible-body">
-                        <ul>
-                            <li><a href="">e</a></li>
-                            <li><a href="">r</a></li>
-                            <li><a href="">t</a></li>
-                        </ul>
-                    </div>
-                <li><a href="#" onclick="logout()"><i class="material-icons">exit_to_app</i>Cerrar Sesión</a></li>
-        </li>
-    </ul>
-    </li>
-    </ul>
-
-    <main class=" main-content">
-        <div class="row">
-            <div class="col s3 m3 l3">
-                <div class="card  black-text dashboard-card">
-                    <div class="card-content">
-                        <p class="stat-number">570</p>
-                        <span class="stat-label">Total Ganado</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 l3">
-                <div class="card  black-text dashboard-card">
-                    <div class="card-content">
-                        <p class="stat-number">2000 lt</p>
-                        <span class="stat-label">Producción</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m3 l3 ">
-                <div class="card  black-text dashboard-card">
-                    <div class="card-content">
-                        <p class="stat-number">70</p>
-                        <span class="stat-label">En tratamiento</span>
-                    </div>
-                </div>
-            </div>
-            <div class="col s3 m3 l3 ">
-                <div class="card  black-text dashboard-card">
-                    <div class="card-content">
-                        <p class="stat-number">50</p>
-                        <span class="stat-label">Embasadas</span>
-                    </div>
-                </div>
-            </div>
-        </div>
+/**
+<script type="module">
 
 
-        <div id="render" class="render"></div>
-    </main>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            var elems = document.querySelectorAll('.sidenav');
-            var instances = M.Sidenav.init(elems, options);
-        });
-    </script>
-
-    <script type="module">
-
-        import { renderPeople } from '/components/Table_personal.js';
-        import { renderRecords } from '/components/Table_registro.js';
-        import { cattleRegistrationForm } from '/components/Cattle_registration_form.js';
 
 
-        const btnPeople = document.getElementById('btn_people');
-        const btnRegisters = document.getElementById('btn_data');
-        const btnCRF = document.getElementById('btn_new_cattle_form');
-        const renderDiv = document.getElementById('render');
 
-        btnPeople.addEventListener('click', () => {
-            renderDiv.innerHTML = '';
-            renderDiv.appendChild(renderPeople());
-        });
-
-        btnRegisters.addEventListener('click', () => {
-            renderDiv.innerHTML = '';
-            renderDiv.appendChild(renderRecords());
-        });
-
-        btnCRF.addEventListener('click', () => {
-            renderDiv.innerHTML = '';
-            renderDiv.appendChild(cattleRegistrationForm());
-        });
-
-
-        window.addEventListener('DOMContentLoaded', () => {
-            renderDiv.innerHTML = '';
-            renderDiv.appendChild(renderPeople());
-        });
 
 
 
@@ -501,11 +375,7 @@
                     console.error('Error:', error);
                     M.toast({html: 'Error al registrar el ganado', classes: 'red'});
                 });
-                */
+                /
             });
         });
-    </script>
-    <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'971d24ab11d99ac0',t:'MTc1NTY0MzEyNy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);"; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
-</body>
-
-</html>
+    </script>*/
